@@ -1,0 +1,72 @@
+/*Write a C++ function that checks whether an integer is odd or even. If the integer is odd, print "Odd"; otherwise, print "Even."
+/*Write a C++ function that takes a string as input and reverses it.
+
+Sample Input:
+Enter a string: CipherSchools
+
+Sample Output:
+Reversed string: sloohcSrehpiC*/
+
+#include<iostream>
+using namespace std;
+
+
+void rev(char s[],int count){
+    int a=count-1;
+    int b=0;
+    char t;
+    while(b<=(count/2)){
+        t=s[b];
+        s[b]=s[a];
+        s[a]=t;
+        a--;
+        b++;
+        
+    }
+    cout << "Reversed string: " ;
+    for (int i=0;i<count;i++)
+    cout << s[i] ; 
+}
+int main(){
+    char s[100];
+    cout << "Enter a string: ";
+    cin >> s;
+    int count=0;
+    for (int i=0;i<100;i++){
+        if(s[i]!='\0')
+        count++;
+        else
+        break;
+    }
+    rev(s,count);
+}
+    
+Sample Input:
+Enter a number: 5
+
+Sample Output:
+Odd
+*/
+
+#include<iostream>
+using namespace std;
+
+int check(int n){
+    if(n%2==0){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int main(){
+    int n;
+    cout <<" Enter a number: ";
+    cin >> n;
+    cout << endl;
+    if(check(n))
+    cout << "Even"<< endl;
+    else 
+    cout <<"Odd" << endl;
+}
