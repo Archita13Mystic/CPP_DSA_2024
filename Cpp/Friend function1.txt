@@ -1,0 +1,30 @@
+// Friend function
+#include <iostream>
+using namespace std;
+
+class Distance{
+    
+    private:
+    int meter;
+    
+    public:
+    Distance(){
+        this->meter=10;
+    }
+    
+    friend int increaseDist(Distance);
+};
+
+int increaseDist(Distance d1)
+// Obj of ditance class passed as parameter
+{
+    d1.meter+=30;
+    return d1.meter;
+}
+
+
+int main() {
+    Distance d;
+    cout << increaseDist(d) << endl;
+
+}

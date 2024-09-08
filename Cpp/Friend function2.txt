@@ -1,0 +1,38 @@
+// Friend function
+#include <iostream>
+using namespace std;
+
+class ClassB;
+
+class ClassA{
+    private:
+    int numA;
+    public:
+    ClassA(){
+        numA=10;
+    }
+    friend int add(ClassA,ClassB);
+    
+};
+
+class ClassB{
+    private:
+    int numB;
+    
+    public:
+    ClassB(){
+        numB=20;
+    }
+    friend int add(ClassA,ClassB);
+
+};
+
+int add(ClassA objA ,ClassB objB){
+    return objA.numA+objB.numB ;
+}
+
+int main(){
+    ClassA obA;
+    ClassB obB;
+    cout << add(obA,obB) << endl;
+}

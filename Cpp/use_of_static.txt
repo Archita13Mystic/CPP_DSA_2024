@@ -1,0 +1,42 @@
+// Friend Classes
+//static keyword
+#include <iostream>
+using namespace std;
+
+class Bank{
+    
+    private: 
+    int x;
+    
+    public:
+    int acc_num;
+    int balance;
+    static int num_of_acc; //it will count number of objects being created
+    
+    Bank(int accnum,int bal){
+    this-> x=20;
+    this->acc_num=accnum;
+    this->balance=bal;
+    }
+    void deposit(int amt);
+    
+    static int getnumofacc(); // a func dealing with static variables should also be static
+    
+};
+
+void Bank::deposit(int amount){
+    cout << x; // private members can be accessed outside the class
+    balance+=amount;
+}
+
+int Bank::num_of_acc=0;
+
+int Bank::getnumofacc(){
+    return num_of_acc;
+}
+
+
+int main(){
+    Bank b1(10,20);
+    cout << Bank::getnumofacc();
+}
