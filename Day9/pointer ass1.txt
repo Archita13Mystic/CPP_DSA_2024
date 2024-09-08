@@ -1,0 +1,14 @@
+/* Write a C++ program that declares an integer variable, initializes it, and then declares a pointer that stores the address of this variable. Print the value of the variable using both the variable itself and the pointer.
+*/
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    int *ptr=&n;
+    cout << "value of the variable using variable: " << n << endl;
+    cout << "value of the variable using pointer: " << *ptr << endl;
+}
