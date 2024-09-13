@@ -1,0 +1,57 @@
+/* Write a function void printLinkedList(Node* head) that traverses a singly linked list and prints each element's value. Input: A linked list with elements 10 -> 20 -> 30 -> 40
+Output: 10 20 30 40*/
+
+#include<iostream>
+using namespace std;
+
+class Node{
+    
+    public:
+    int data;
+    Node* next;
+    
+    Node(int val){
+        this->data=val;
+        next=NULL;
+    }
+    
+};
+
+void PrintLinkedList(Node* head){
+    Node* temp=head;
+    while(temp!=NULL){
+        cout << temp->data << " -> ";
+        temp=temp->next;
+    }
+    cout << "NULL" <<endl;
+}
+
+void InsertAtTail(Node* &head,int val){
+    Node* n=new Node(val);
+    
+    if (head==NULL){
+    head=n;
+    return;
+    }
+    
+    Node* temp=head;
+    
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    
+    temp->next=n;
+    
+    
+}
+
+int main(){
+    Node* head=NULL;
+    
+    InsertAtTail(head,10);
+    InsertAtTail(head,20);
+    InsertAtTail(head,30);
+    InsertAtTail(head,40);
+
+    PrintLinkedList(head);
+}

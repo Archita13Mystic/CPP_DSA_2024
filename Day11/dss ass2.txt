@@ -1,0 +1,42 @@
+/* You are given an array and target value. You have to find the index of target value. If target doest exist inside the array then print -1.Assume indexing is 1 based.
+
+Sample Input :- Array -[2,4,6,7,8]
+Target: 6
+Output: 3 */
+
+
+#include<iostream>
+using namespace std;
+
+
+int index(int arr[],int size,int target){
+        int ii;
+     for (int i=0;i<size;i++){
+         ii=arr[i];
+         if( ii== target )
+         return i ;
+     }
+     return -1;
+}
+
+
+int main(){
+    
+    int size;
+    int arr[10];
+    int target;
+    
+    cout << "Enter size of array: ";
+    cin >> size;
+    
+    cout <<"Enter array elements: " << endl;
+    for(int i=0;i<size;i++)
+    cin >> arr[i];
+    
+    cout << "Enter target element : " << endl;
+    cin >> target ;
+    
+     
+     cout <<  "index: " << index(arr,size,target);
+    
+}

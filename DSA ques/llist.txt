@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+
+class Node{
+    public:
+    int data ;
+    Node* next;
+    
+    Node(int val){
+        data=val;
+        next=NULL;
+    }
+}
+
+void InsertAtHead(Node* &head,int val){
+    
+    Node* n=new Node(val);
+    if(head==NULL){
+        n->next=n;
+        head=n;
+        return;
+    }
+    
+    Node* temp=head;
+    
+    while(temp->next==head){
+        n->next=head;
+        temp->next=n;
+        head=n;
+    }
+    
+}
+
+
+void InsertAtTail(Node* &head,int val){
+    
+    Node* n=new Node(val);
+    
+    if(head==NULL){
+        InsertAtHead(head,val);
+        return ;
+    }
+    
+    Node* temp=head;
+    
+    

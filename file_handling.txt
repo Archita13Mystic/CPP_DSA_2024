@@ -1,0 +1,25 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main(){
+    ofstream file("test.txt");
+    
+    // if(!file) // if file does not exist
+    // cout << "Error" << endl;
+    
+    // if(file) // file exists
+    // cout << "Success" << endl;
+    
+    // if(file.is_open()) checks if file is open
+    
+    // if(file.fail()) checks if file has failed to open
+    
+    
+    //READ OPERATION
+    
+    ifstream file("test.txt");
+    
+    
+    file.close();
+}

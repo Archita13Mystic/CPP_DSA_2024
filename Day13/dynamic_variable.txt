@@ -1,0 +1,10 @@
+/* Write C++ program to demonstrate how to create dynamic variable using new keyword. */
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int* a=new int();
+    cin >> *a;
+    cout  << "Value of a: " << *a << endl;
+}
