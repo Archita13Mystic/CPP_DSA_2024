@@ -1,0 +1,34 @@
+// Write a C++ code that take 2D array from user input. Now you have to find sum of all values of the array.
+
+
+#include<iostream>
+using namespace std;
+
+int ar(int arr[][5],int k,int r,int c){
+    int sum=0;
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            sum+=arr[i][j];
+        }
+    }
+    return sum;
+}
+
+int main(){
+    int arr[5][5];
+    int r,c,k;
+    
+    cout << "Enter row and column" << endl;
+    cin >> r;
+    cin >> c;
+    
+    cout <<"Enter array : "<<endl;
+    for(int i=0;i<r;i++)
+    for(int j=0;j<c;j++)
+    cin >> arr[i][j];
+    
+    
+    
+    cout << ar(arr,k,r,c) << endl;
+    
+}

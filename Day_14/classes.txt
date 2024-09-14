@@ -1,0 +1,24 @@
+/*Define a car class with properties brand name , model, engine, number of seats and method displayInfo that display the all information of class.*/
+
+#include <iostream>
+using namespace std;
+
+class car{
+    
+    public:
+    string name,model,engine;
+    int seats;
+    
+    void displayInfo(){
+    cout << "Brand name: " << name << endl;
+    cout << "Model: " << model << endl;
+    cout << "Engine: " << engine << endl;
+    cout << "Number of seats: " << seats << endl;
+    }
+    
+};
+
+int main(){
+    car obj={"Maruti", "Wagonr" , "G345GD5" , 4 };
+    obj.displayInfo();
+}

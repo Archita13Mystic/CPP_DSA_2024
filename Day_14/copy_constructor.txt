@@ -1,0 +1,28 @@
+/* Write a program that defines a Rectangle class with a copy constructor */
+
+#include<iostream>
+using namespace std;
+
+class Rectangle{
+    public:
+    int length;
+    int breadth;
+    
+    Rectangle(int l,int b){
+        this->length=l;
+        this->breadth=b;
+    }
+    
+    Rectangle(Rectangle &old){
+        length=old.length;
+        breadth=old.breadth;
+    }
+};
+
+int main(){
+    Rectangle ob1(2,4);
+    Rectangle ob2=ob1;
+    
+    cout << "For object1: " << ob1.length << "," << ob1.breadth << endl;
+    cout << "For object2: " << ob2.length << "," << ob2.breadth << endl;
+}
