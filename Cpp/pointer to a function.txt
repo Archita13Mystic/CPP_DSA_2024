@@ -1,0 +1,39 @@
+//pointer to a function
+// int* (func_ptr)(int ,int)=&func_name
+
+//pointer to an object
+//
+
+
+
+
+#include<iostream>
+using namespace std;
+
+class Rectangle{
+    public:
+    int l,b;
+    
+    Rectangle(int len,int w){
+        l=len;
+        b=w;
+        
+    }
+    
+    int area(){
+        return l*b;
+    }
+    
+};
+
+int main(){
+    
+    Rectangle r1(4,5);
+    
+    //pointer to object
+    Rectangle* rectptr = &r1;
+    
+    cout << rectptr->area() << endl;
+    
+    
+}

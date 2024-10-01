@@ -1,0 +1,63 @@
+//sorting of linked list using quick sort
+
+#include<iostream>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+    
+    Node(int val){
+        this->data=val;
+        next=NULL;
+    }
+};
+
+
+Node* getmidle(Node* head){
+    if(head==NULL || head->next==NULL)
+    return head;
+    
+    Node*s=head,f=head;
+    while(f!=NULL && f->next!=NULL){
+        s=s->next;
+        f=f->next->next;
+    }
+    return s;
+}
+
+
+Node* merge(Node* left,Node* right){
+    
+    //edge case
+    if(left==NULL) return right;
+    if(right==NULL) return left;
+        
+    if(left->data < right -> data){
+    left->next=merge(left->next,right);
+    return left;
+    }
+    else{
+        right->next=merge(left,right->next);
+        return right;
+    }
+}
+
+Node* mergesort(Node* head){
+    if(head==NULL || head->next==NULL)
+    return head;
+    
+    Node* mid=getmidle(head);
+    Node* secondh=mid->next;
+    
+    Node* left=mergesort(head);
+    Node* right = mergesort(secondh);
+    
+    return merge(left,right);
+    
+}
+
+int main(){
+    
+}
