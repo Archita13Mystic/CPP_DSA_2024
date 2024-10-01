@@ -1,0 +1,45 @@
+/* Ques 1: Write a C++ program that take txt file input and write your details inside that file through c++ and then print this details. */
+
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std;
+
+int main(){
+    string fileName;
+    cout << "Enter the name of the text file: " ;
+    cin >> fileName ;
+    
+    ofstream outFile(fileName);
+    
+    if(!outFile) {
+        cerr << "Error: Could not open the file for writing" << endl;
+        return 1;
+    }
+    
+    string fname, lname;
+    int age;
+    
+    cin >> fname >> lname >> age ;
+    
+    outFile << "First name: " << fname << endl;
+    outFile << "Last name: " << lname << endl;
+    outFile << "Age: " << age << endl;
+    
+    outFile.close();
+    
+    ifstream inFile(fileName);
+    
+    if(!inFile){
+        cerr << "Error: could not open file for reading" << endl;
+        return 1;
+    }
+    
+    string line;
+    cout << "Details from the file: " << endl;
+    while(getline(inFile, line)) {
+        cout << line << endl;
+    }
+    inFile.close();
+    return 0;
+}s
