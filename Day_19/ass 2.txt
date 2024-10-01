@@ -1,0 +1,27 @@
+/* Ques 2: Write C++ program that take input from the txt file and then print output inside terminal. Take any txt file by yourself. */
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main(){
+    
+    string fileName="input.txt";
+    ifstream inFile(fileName);
+    
+    if(!inFile){
+        cerr << "Error: Could not happen the file " << fileName << " for reading" << endl;
+        return 1;
+    }
+    
+    string line;
+    cout << "Content of file: " << endl;
+    
+    while(getline(inFile,line)){
+        cout << line << endl;
+    }
+    
+    inFile.close();
+    return 0;
+    
+}
