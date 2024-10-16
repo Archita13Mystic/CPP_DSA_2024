@@ -1,0 +1,79 @@
+/* Ques 1: Write C++ program that create a stack using Array.
+ */
+ 
+ #include<iostream>
+ using namespace std;
+ 
+ class Stack{
+     public:
+     int arr[10];
+     int top;
+     
+     Stack(){
+         top=-1;
+     }
+
+ 
+ void push(int v){
+     if(top==9){
+     cout << "Stack Overflow"<< endl;
+     return ;
+     }
+     else{
+         arr[++top]=v;
+     }
+ }
+ 
+void pop(){
+    if(top==-1)
+    {
+        cout << "Stack Underflow" << endl;
+        return;
+    }
+    else --top;
+}
+
+void display() {
+        if (top == -1) {
+            cout << "Stack is empty" << endl;
+            return;
+        }
+
+        cout << "Stack elements: ";
+        for (int i = 0; i <= top; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main(){
+    Stack stack;
+    int a, choice,v;
+    cout <<"To exit enter 0" << endl;
+    cin >> a;
+    while(a != 0){
+        cout << "1. Add element\n2.Remove element\n3.Display" << endl;
+        cin >> choice;
+        switch(choice){
+            case 1: 
+            cin >> v;
+            stack.push(v);
+            break;
+            
+            case 2:
+            stack.pop();
+            break;
+            
+            case 3:
+            stack.display();
+            break;
+            
+            default:
+            cout << "Invalid Input" << endl;
+            break;
+        }
+        cout <<"To exit enter 0" << endl;
+        cin >> a;
+    }
+}

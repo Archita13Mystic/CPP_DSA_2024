@@ -1,0 +1,93 @@
+/* Ques 1: Write C++ program to create a doubly linkedlist and insert a node at any position . Input Linkedlist: 2<->4<->5 ,p = 2, x = 6 Output: 2 4 5 6, Explanation: p = 2, and x = 6. So, 6 is
+inserted after p, i.e, at position 3
+(0-based indexing). */
+
+#include<iostream>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* prev;
+    Node* next;
+    
+    Node(int value){
+        data=value;
+        prev=NULL;
+        next=NULL;
+    }
+};
+
+void InsertAtTail(Node* &head, int value){
+    Node* n=new Node(value);
+    
+    if(head == NULL){
+        head=n;
+        return ;
+    }
+    Node* temp=head;
+    while(temp->next != NULL){
+        temp=temp->next;
+    }
+    temp->next=n;
+}
+
+void display(Node* head){
+    Node* temp=head;
+    
+    while(temp != NULL){
+        cout << temp->data << "<->" ;
+        temp=temp->next;
+     }
+     cout << "NULL" << endl;
+}
+
+void InsertRandom(Node* &head, int value, int pos,int Maxs){
+    Node* n=new Node(value);
+
+    if(pos < 0 || pos > Maxs){
+    cout << "Invalid position" << endl;
+    }
+    
+    if(pos == 0){
+        head->prev=n;
+        n->next=head;
+        head=n;
+        return;
+    }
+    
+    Node* temp = head;
+
+    
+    int k=0;
+    while(temp->next != NULL && k<pos-1){
+        temp=temp->next;
+        k++;
+    }
+    n->next=temp->next;
+    temp->next->prev=n;
+    n->prev=temp;
+    temp->next = n;
+}
+
+int main(){
+    Node* head=NULL;
+    int count=0;
+    InsertAtTail(head, 1);
+    count++;
+    InsertAtTail(head, 2);
+    count++;
+    InsertAtTail(head, 3);
+    count++;
+    InsertAtTail(head, 4);
+    count++;
+    InsertAtTail(head, 5);
+    count++;
+    
+    int v,p;
+    cin >> v >> p;
+    InsertRandom(head, v, p, count);
+    
+    display(head);
+    
+}

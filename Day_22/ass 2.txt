@@ -1,0 +1,53 @@
+/* Write C++ program that take n from the user the number of elements and insert all the value inside stack after inserting all value inside stack pop all the values and print. Input: n=5 values = 1,2,3,4,5 output :- 5,4,3,2,1. */
+
+#include<iostream>
+using namespace std;
+
+class Stack {
+public:
+    int arr[100];
+    int top;
+
+    Stack() {
+        top = -1;
+    }
+
+    void push(int v) {
+        if (top < 99) {
+            arr[++top] = v;
+        }
+    }
+
+    int pop() {
+        if (top != -1) {
+            return arr[top--];
+        }
+        return -1;
+    }
+
+    bool isEmpty() {
+        return top == -1;
+    }
+};
+
+int main() {
+    Stack stack;
+    int n, value;
+
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Enter value: ";
+        cin >> value;
+        stack.push(value);
+    }
+
+    cout << "Popped values: ";
+    while (!stack.isEmpty()) {
+        cout << stack.pop() << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
